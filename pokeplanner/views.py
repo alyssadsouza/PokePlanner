@@ -31,6 +31,12 @@ def index(request):
         pokemon = Pokemon.objects.get(user=request.user)
         pokemon.xp += xp
         pokemon.save()
+
+        if pokemon.xp > 1000:
+            print("hi")
+            pokemon.level += 1
+            pokemon.xp -= 1000
+            pokemon.save()
     else:
         saved = []
         xp = 0
