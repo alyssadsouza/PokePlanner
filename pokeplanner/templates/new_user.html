@@ -1,6 +1,7 @@
 {% extends "layout.html" %}
+{% load static %}
 
-{% block title %}Welcome!{% endblock %}
+{% block title %}Welcome! | PokéPlanner{% endblock %}
 
 {% block body%}
 
@@ -9,13 +10,16 @@
     <h1>Welcome!</h1>
     <h3>Choose your starter Pokemon.</h3>
 
-    <h3>To identify your budgeting needs, fill out the following questionnaire.</h3>
-
-    <form id="budget_survey">
-
+    <form id="choose_pokemon" action="{% url 'new_user' %}" method="POST">
+        {% csrf_token %}
+        <select name="name" id="starter_pokemon">
+            <option name="squirtle">Squirtle</option>
+        </select>
+        <h3>Add a nickname! (Optional)</h3>
+        <input type="text" name="nickname">
+        <img src="{% static 'squirtle.png' %}" alt="Squirtle">
+        <input type="submit" class="btn" value="Let's Go!">
     </form>
-
-    <h3>Choose your categories for spending (you can always edit these later)</h3>
 
 </div>
 
