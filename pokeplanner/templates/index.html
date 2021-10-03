@@ -4,6 +4,7 @@
 {% block title %}Home | PokéPlanner{% endblock %}
 
 {% block body %}
+<script src="{% static 'index.js' %}"></script>
 
 <div id="pokemon_stage">
     <h3>{{pokemon.nickname}} is feeling very content.</h3>
@@ -13,13 +14,13 @@
 </div>
 
 <div id="index-nav">
-    <button id="show_goals">Spending Goals</button>
-    <button id="show_purchases">Purchases</button>
-    <button id="show_store">PokéStore</button>
-    <button id="show_buyxp">Purchase XP</button>
+    <button class="show_view" data-div="goals" id="show_goals">Spending Goals</button>
+    <button class="show_view" data-div="purchases" id="show_purchases">Purchases</button>
+    <button class="show_view" data-div="store" id="show_store">PokéStore</button>
+    <button class="show_view" data-div="buyxp" id="show_buyxp">Purchase XP</button>
 </div>
 
-<div id="goals">
+<div class ="view hidden" id="goals">
     {% if end_of_week %}
         Woo! You stayed in your spending limit for:
         {% for goal in saved %}
@@ -58,7 +59,7 @@
     {% endif %}
 </div>
 
-<div id="purchases">
+<div class ="view hidden" id="purchases">
     <form id="add_purchase" action="add_purchase" method="POST">
         {% csrf_token %}
         <input type="text" name="name">
@@ -76,7 +77,7 @@
     </form>
 </div>
 
-<div id="store"></div>
-<div id="buyxp"></div>
+<div class ="view hidden" id="store"></div>
+<div class ="view hidden" id="buyxp"></div>
 
 {% endblock %}
