@@ -12,10 +12,12 @@ import datetime
 
  # Create your views here.
 
+end_of_week = (datetime.datetime.today().weekday() == 6)
+
 @login_required(login_url="login")
 def index(request):
 
-    end_of_week = (datetime.datetime.today().weekday() == 6)
+    global end_of_week
 
     try:
         this_week = Week.objects.get(user=request.user,week=datetime.datetime.today().isocalendar()[1], year=datetime.datetime.today().isocalendar()[0])
@@ -25,7 +27,7 @@ def index(request):
         goals_set = False
         goals = ["Rent","Bills","Taxes","Food","Transportation","Entertainment","Miscellaenous"]
 
-    if end_of_week:
+    if end_of_week and goals_set:
         saved = [goal for goal in goals if goal.isMaxed]
         xp = len(saved)*100
         pokemon = Pokemon.objects.get(user=request.user)
@@ -33,10 +35,11 @@ def index(request):
         pokemon.save()
 
         if pokemon.xp > 1000:
-            print("hi")
             pokemon.level += 1
             pokemon.xp -= 1000
             pokemon.save()
+
+        end_of_week = False
     else:
         saved = []
         xp = 0

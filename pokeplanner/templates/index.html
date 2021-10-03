@@ -21,10 +21,12 @@
 </div>
 
 <div class ="view hidden" id="goals">
-    {% if end_of_week %}
-        Woo! You stayed in your spending limit for:
+    {% if end_of_week and goals_set %}
+        You stayed in your spending limit for:
         {% for goal in saved %}
         {{goal.category}},
+        {% empty %}
+        none of your goals,
         {% endfor %}
         so you've earned {{pokemon.nickname}} {{xp}} XP!
     {% endif %}
@@ -79,5 +81,7 @@
 
 <div class ="view hidden" id="store"></div>
 <div class ="view hidden" id="buyxp"></div>
+
+<a href="{% url 'logout' %}" class="btn">Log Out</a>
 
 {% endblock %}
