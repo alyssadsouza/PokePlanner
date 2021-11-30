@@ -1,6 +1,8 @@
-# pokeplanner
+# PokéPlanner
 *Our submission for The Golden Hack 3.0.*
 ## How it works
 Evolve your pokemon, level them up, and teach them new moves as you save money and budget your income responsibly! When you open up PokéPlanner you’re greeted by your starter Pokémon. New users will be prompted to choose their starter and add a nickname. 
+
 At the start of the week, the user will be prompted to input their spending limit goals for the week, categorized by typical areas of spending: rent, bills, taxes, food, transportation, entertainment, and miscellaneous. The app will generate recommended values based on the “50/30/20” economic rule of thumb. It suggests 50% of one’s income goes to needs, 30% to wants, and 20% to future goals. By connecting PokéPlanner to your mobile banking app, your weekly income will be pre-divided into the aforementioned categories, and the user will be able to alter these values as they see fit. After completing the weekly goal setup, this section will show you your spending goals for that week per category. As you make purchases through your credit or debit card, your goal balances will update accordingly.
+
 By the end of the week, if your goals are met or, even better, if you saved money by not overspending on luxury items, you’ll earn XP for your Pokémon. Earn 1000 XP and your Pokémon levels up! You can also use XP to purchase accessories and moves. For future prospects, users will be able to battle other users’ Pokémon, which encourages them to level up and earn XP by saving and spending responsibly. Users will also have the option to make in-app purchases for XP directly.
